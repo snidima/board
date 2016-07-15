@@ -1,0 +1,475 @@
+$list-main-block-bg-color: #e2e4e6
+$list-card-block-bg-color: #fff
+
+#test
+	background: rgba(255, 255, 255, 0.165)
+	padding: 12px 20px 10px 20px
+	position: fixed
+	bottom: 0
+	width: 100%
+
+.lists-block
+	display: flex
+	flex-wrap: wrap
+	padding: 7px
+	& > *
+		width: 25%
+		min-width: 250px
+		padding: inherit
+	.lists-block-drag-placeholder
+		+border-radius()
+		transform: scale(0.95,1)
+		background: rgba(0,0,0,0.08)
+		margin-top: 7px
+
+.list-block-wrap
+	background: $list-main-block-bg-color
+	padding: 13px
+	box-shadow: 0 0 10px rgba(0,0,0,0.15)
+	transition: transform 0.1s linear
+
+
+
+	+border-radius()
+	&[data-drag='true']
+		transform: rotate(-2deg)
+	&[data-drag='false']
+		transform: rotate(0deg)
+
+
+.list-block-header
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+
+
+.list-block-header
+	&[data-state='enter']
+		.list-block-header__text, .list-block-header__menu
+			display: none
+		.list-block-header__form
+			display: block
+	&[data-state='false']
+		.list-block-header__text, .list-block-header__menu
+			display: block
+		.list-block-header__form
+			display: none
+
+
+
+.list-block-header__text
+	cursor: pointer
+	color: #5a5a5a
+	font-size: 16px
+	font-weight: bold
+	&:hover
+		color: #464646
+
+.list-block-header-form
+	width: 100%
+
+
+.list-block-header-form__input
+	background: #fff
+	margin-bottom: 10px
+	+border-radius()
+	outline: none
+	font-size: 14px
+	padding: 10px
+	border: 1px solid transparent
+	height: inherit
+	width: inherit
+	color: inherit
+
+.list-block-header__menu
+	cursor: pointer
+	color: #797a77
+	padding: 5px 10px
+	transition: all 0.085s linear
+	+border-radius()
+	&:hover
+		color: #db531c
+		background: rgba(0,0,0,0.08)
+
+
+
+
+
+
+
+
+
+.list-block-card
+	padding: 15px 0
+	.list-block-card-placeholder
+		+border-radius(3px)
+		background: rgba(0,0,0,0.05)
+		margin-bottom: 7.5px
+		padding: 0
+
+.list-block-card-content
+	background: $list-card-block-bg-color
+	box-shadow: 0 1px 0 rgba(0,0,0,0.15)
+	padding: 9px 7px
+	color: #9b9b9b
+	font-size: 13px
+	cursor: pointer
+	border: 1px solid transparent
+	display: flex
+	flex-wrap: nowrap
+	justify-content: space-between
+	align-items: center
+	+border-radius(3px)
+	&:not(:last-of-type)
+		margin-bottom: 6px
+
+.list-block-card-content__text
+
+.list-block-card-content__edit
+	padding: 2px 7px 7px 7px
+	+border-radius()
+	&:hover
+		background: rgba(0, 0, 0, .1)
+
+
+.list-block-card-popup
+	cursor: default
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	display: flex
+	justify-content: center
+	align-items: center
+	z-index: 99999999999999
+	background: rgba(0, 0, 0, 0.6)
+	transition: all 0.52s linear
+	overflow: hidden
+
+.list-block-card-popup-wrap
+	padding: 20px
+	color: #000
+	width: 600px
+	position: relative
+	background: #ececec
+	overflow: hidden
+	+border-radius(10px)
+
+.list-block-card-popup-close
+	position: absolute
+	cursor: pointer
+	font-size: 18px
+	width:  15px
+	height: 15px
+	background: #ff4027
+	right: 10px
+	top: 10px
+	color: #979797
+	+border-radius(50%)
+	&:hover
+		background: #bf3023
+
+.list-block-card-popup-text-big
+	color: #494949
+	font-size: 16px
+
+.list-block-card-popup-text-normal
+	color: #848484
+	font-size: 12px
+
+.list-block-card-popup-block
+	display: flex
+	align-items: flex-start
+	&:not(:first-of-type)
+		margin-top: 40px
+
+.list-block-card-popup-block__icon
+	text-align: center
+	width: 10%
+.list-block-card-popup-block__content
+	width: 90%
+	padding-left: 10px
+
+
+.list-block-card-popup-horizontal-items
+	display: flex
+	margin-top: 20px
+
+
+.list-block-card-popup-horizontal__item
+	&:not(:last-of-type)
+		margin-right: 15px
+
+.list-block-card-popup-horizontal-item-text
+	padding: 0 0 5px 0
+	color: #747474
+	font-size: 14px
+
+.list-block-card-popup-horizontal-item-else
+	display: flex
+
+.list-block-card-popup-horizontal-item-else__text
+	background: #8c8b7e
+	line-height: 30px
+	padding: 0 10px
+	color: #4e4e4e
+	+hover-bg(#e8e8e8)
+	+border-radius(4px)
+
+.list-block-card-popup-horizontal-item-else__block
+	height: 30px
+	line-height: 30px
+	+border-radius(4px)
+	&:not(:last-of-type)
+		margin-right: 5px
+		
+.list-block-card-popup-horizontal-item-else__block_green
+	width: 50px
+	+hover-bg(#95e814)
+	
+.list-block-card-popup-horizontal-item-else__block_add
+	padding: 0 12px
+	+hover-bg(#e8e8e8)
+	
+.list-block-card-popup-horizontal-item-else__comments
+
+.list-block-card-popup-horizontal-item-else-comments
+	list-style: none
+.list-block-card-popup-horizontal-item-else-comments__text
+	font-size: 14px
+	text-decoration: underline
+	color: #383838
+
+.list-block-card-popup-horizontal-item-attach
+	padding: 35px 50px
+	color: #797979
+	font-weight: bold
+	font-size: 24px
+	border: 1px solid #c2c2c2
+	+border-radius()
+	+hover-bg(#d6d6d6)
+
+.list-block-card-popup-horizontal-item-description
+	font-size: 14px
+	color: #353535
+
+.list-block-card-popup-horizontal-item__file-time
+	font-size: 14px
+	color: #a0a0a0
+
+.list-block-card-popup-horizontal-item__action
+	padding-top: 10px
+.list-block-card-popup-horizontal-item-action
+	display: inline-block
+	margin-right: 15px
+	text-decoration: underline
+	color: #a0a0a0
+
+.list-block-card-popup-add-attach
+	margin-top: 15px
+	font-size: 14px
+	text-decoration: underline
+	color: #a0a0a0
+
+
+
+
+
+
+
+.list-block-add-a-card
+	text-align: right
+	&[data-state='enter']
+		.list-block-add-a-card__text
+			display: none
+		.list-block-add-a-card__form
+			display: block
+	&[data-state='false']
+		.list-block-add-a-card__text
+			display: inline-block
+		.list-block-add-a-card__form
+			display: none
+
+.list-block-add-a-card__text
+	color: #8d8d8d
+	cursor: pointer
+	font-size: 12px
+	display: inline-block
+	&:hover
+		color: darken(#8d8d8d, 15%)
+
+
+.list-block-add-a-card-form-input
+	outline: none
+	display: block
+	width: 100%
+	height: 95px
+	background: #fff
+	padding: 10px
+	border: none
+	+border-radius()
+
+
+.list-block-add-a-card-form-btn
+	margin-top: 10px
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	+border-radius(3px)
+
+.list-block-add-a-card-form-btn_save
+	background: #8bdb09
+	color: #fff
+	margin-right: 5px
+	&:hover
+		background: #74be09
+
+.list-block-add-a-card-form-btn_cancel
+	background: #917be8
+	color: #fff
+	&:hover
+		background: #7966c4
+
+
+
+
+
+
+
+
+.list-block-add-new
+	padding: 10px
+	text-align: right
+	+border-radius()
+
+
+.list-block-add-new
+	&[data-state='enter']
+		background: $list-main-block-bg-color
+		.list-block-add-new__text
+			display: none
+		.list-block-add-new__form
+			display: block
+	&[data-state='false']
+		background: rgba(255,255,255,0.2)
+		color: #d4d4d4
+		text-align: center
+		cursor: pointer
+		&:hover
+			background: rgba(255,255,255,0.25)
+			color: #f4f4f4
+		.list-block-add-new__text
+			display: block
+		.list-block-add-new__form
+			display: none
+
+.list-block-add-new__text
+	font-size: 14px
+
+
+.list-block-add-new-form__input-text
+	display: block
+	width: 100%
+	margin-bottom: 10px
+	outline: none
+	padding: 10px 10px
+	font-size: 13px
+	border: none
+	color: #6d6d6d
+	+border-radius()
+
+.list-block-add-new-form__input-btn
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	+border-radius(3px)
+
+.list-block-add-new-form__input-btn-save
+	background: #8bdb09
+	color: #fff
+	margin-right: 5px
+	&:hover
+		background: #74be09
+	&:active
+		background: #62a609
+
+
+.list-block-add-new-form__input-btn-cancel
+	background: #917be8
+	color: #fff
+	&:hover
+		background: #7966c4
+	&:active
+		background: #6a4ec4
+
+
+
+.btn-yellow
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	+border-radius(3px)
+	background: #f4724a
+	color: #fff
+	&:hover
+		background: #e86e47
+	&:active
+		background: #e8592e
+
+.btn-green
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	margin-left: 10px
+	+border-radius(3px)
+	background: #e639f4
+	color: #fff
+	&:hover
+		background: #d637e3
+	&:active
+		background: #c434d0
+
+.btn-blue
+	transition: all 0.05s linear
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	margin-left: 10px
+	+border-radius(3px)
+	background: #f44652
+	color: #fff
+	&:hover
+		background: #d6404b
+	&:active
+		background: #bf3a44
+
+.btn-some
+	transition: all 0.05s linear
+	border: none
+	padding: 5px 10px
+	font-size: 12px
+	outline: none
+	cursor: pointer
+	margin-left: 10px
+	+border-radius(3px)
+	background: #13ba38
+	color: #fff
+	&:hover
+		background: #11ae33
+	&:active
+		background: #0ea52f
+		
+		
+		

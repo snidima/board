@@ -1,0 +1,20 @@
+=debug($color:null)
+	@if $color
+		border: 1px solid $color
+	@else
+		border: 1px solid red
+
+=border-radius($radius:null)
+	@if $radius
+		border-radius: $radius
+	@else
+		border-radius: $border-radius
+
+
+=hover-bg($color)
+	background: $color
+	cursor: pointer
+	&:hover
+		background: darken($color, 3%)
+	&:active
+		background: darken($color, 5%)
